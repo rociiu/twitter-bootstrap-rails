@@ -150,6 +150,8 @@
             tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
+            console.log('checking width')
+            console.log(pos.left + actualWidth > $(document).outerWidth())
             if(pos.left + actualWidth > $(document).outerWidth()) {
               tp = {top: pos.top - actualHeight, left: $(document).outerWidth()-actualWidth}
               $tip.children(".arrow").css("left", this.$element.offset().left - tp.left + (this.$element.width() / 2))
