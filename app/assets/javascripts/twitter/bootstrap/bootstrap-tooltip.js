@@ -150,7 +150,12 @@
             tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            if(pos.left + actualWidth > $(document).outerWidth()) {
+              tp = {top: pos.top - actualHeight, left: $(document).outerWidth()-actualWidth}
+              $tip.children(".arrow").css("left", this.$element.offset().left - tp.left + (this.$element.width() / 2))
+            } else {
+              tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            }
             break
           case 'left':
             tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
