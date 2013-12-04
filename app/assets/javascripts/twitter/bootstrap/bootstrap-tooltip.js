@@ -153,6 +153,8 @@
             if(pos.left + actualWidth > $(document).outerWidth()) {
               tp = {top: pos.top - actualHeight, left: $(document).outerWidth()-actualWidth}
               $tip.children(".arrow").css("left", this.$element.offset().left - tp.left + (this.$element.width() / 2))
+            } else if(pos.left < actualWidth/2){
+              tp = {top: pos.top - actualHeight, left: 0}
             } else {
               tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
             }
