@@ -155,6 +155,8 @@
               $tip.children(".arrow").css("left", this.$element.offset().left - tp.left + (this.$element.width() / 2))
             } else if(pos.left < actualWidth/2){
               tp = {top: pos.top - actualHeight, left: 0}
+              var arrow_left = this.$element.offset().left
+              $tip.children(".arrow").css("left", (arrow_left <= 0 ? 15 : arrow_left))
             } else {
               tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
             }
